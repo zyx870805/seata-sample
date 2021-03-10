@@ -23,51 +23,51 @@ dubbo:
 seata:
   enabled: true
   tx-service-group: sample-repo-service
-  transport:
-    type: TCP
-    server: NIO
-    hearbeat: true
-    enable-client-batch-send-request: true
-    thread-factory:
-      boss-trhead-prefix: NettyBoss
-      workder-thread-prefix: NettyServerNIOWorkder
-      server-executor-thread-prefix: NettyServerBizHandler
-      share-boss-workder: false
-      client-selector-thread-prefix: NettyClientSelector
-      client-selector-thread-size: 1
-      client-workder-thread-prefix: NettyClientWorkderThread
-      boss-thread-size: 1
-      workder-thread-size: 8
-    shutdown:
-      wait: 3
-    serialization: seata
-    compressor: none
-  service:
-    vgroup-mapping: default
-    enable-degrade: false
-    disable-global-transaction: false
-    #grouplist: 192.168.6.110:8091
+#  transport:
+#    type: TCP
+#    server: NIO
+#    hearbeat: true
+#    enable-client-batch-send-request: true
+#    thread-factory:
+#      boss-trhead-prefix: NettyBoss
+#      workder-thread-prefix: NettyServerNIOWorkder
+#      server-executor-thread-prefix: NettyServerBizHandler
+#      share-boss-workder: false
+#      client-selector-thread-prefix: NettyClientSelector
+#      client-selector-thread-size: 1
+#      client-workder-thread-prefix: NettyClientWorkderThread
+#      boss-thread-size: 1
+#      workder-thread-size: 8
+#    shutdown:
+#      wait: 3
+#    serialization: seata
+#    compressor: none
+#  service:
+#    vgroup-mapping: default
+#    enable-degrade: false
+#    disable-global-transaction: false
+#    #grouplist: 192.168.6.110:8091
   client:
-    rm:
-      lock:
-        lock-retry-interval: 10
-        lock-retry-policy-branch-rollback-on-conflict: true
-        lock-retry-times: 30
-      rm-async-commit-buffer-limit: 10000
-      rm-async-retry-count: 5
-      rm-table-meta-check-enable: false
-      rm-report-success-enable: true
-      tm-commit-retry-count: 5
-      tm-rollback-retry-count: 5
-      undo:
-        undo-log-table: undo_log
-        undo-data-validation: true
-        undo-log-serialization: jackson
-      log:
-        exception-rate: 100
-      support:
-        spring:
-          datasource-autoproxy: true
+#    rm:
+#      lock:
+#        lock-retry-interval: 10
+#        lock-retry-policy-branch-rollback-on-conflict: true
+#        lock-retry-times: 30
+#      rm-async-commit-buffer-limit: 10000
+#      rm-async-retry-count: 5
+#      rm-table-meta-check-enable: false
+#      rm-report-success-enable: true
+#      tm-commit-retry-count: 5
+#      tm-rollback-retry-count: 5
+#      undo:
+#        undo-log-table: undo_log
+#        undo-data-validation: true
+#        undo-log-serialization: jackson
+#      log:
+#        exception-rate: 100
+    support:
+       spring:
+         datasource-autoproxy: true
   registry:
     type: nacos
     nacos:
